@@ -2,7 +2,7 @@ import { NodePgDatabase, drizzle } from 'drizzle-orm/node-postgres';
 import { Pool, PoolConfig } from 'pg';
 
 import * as mainSchema from './schema';
-import { ConfigService } from 'src/config/config.service';
+import { ConfigService } from '../config/config.service';
 
 const schema = { ...mainSchema };
 

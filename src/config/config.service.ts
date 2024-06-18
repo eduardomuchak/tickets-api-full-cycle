@@ -43,13 +43,4 @@ export class ConfigService {
       password: this.config.get<string>('DATABASE_PASSWORD', 'senha123'),
     };
   }
-
-  get jwt() {
-    return {
-      secretAccessToken: this.config.get<string>(
-        'JWT_SECRET_ACCESS_TOKEN',
-        'Teste@123',
-      ),
-    };
-  }
 }

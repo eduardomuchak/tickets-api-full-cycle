@@ -8,7 +8,7 @@ import {
 } from 'drizzle-orm/pg-core';
 
 export const events = pgTable('events', {
-  id: uuid('id').primaryKey().default('uuid_generate_v4()'),
+  id: uuid('id').primaryKey(),
   name: varchar('name', { length: 255 }).notNull(),
   description: text('description').notNull(),
   date: timestamp('date').notNull(),

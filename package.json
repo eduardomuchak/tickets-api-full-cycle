@@ -18,10 +18,10 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "db:generate": "drizzle-kit generate:pg",
-    "db:check": "drizzle-kit check:pg",
+    "db:generate": "drizzle-kit generate",
+    "db:check": "drizzle-kit check",
     "db:drop": "drizzle-kit drop",
-    "db:migrate": "ts-node ./src/database/migrate.ts"
+    "db:migrate": "ts-node ./src/db/migrate.ts"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
