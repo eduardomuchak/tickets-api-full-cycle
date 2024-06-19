@@ -4,11 +4,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from './config/config.module';
 import { ConfigService } from './config/config.service';
-import { EventsModule } from './events/events.module';
+import { EventsModule } from './models/events/events.module';
 import { ExtractJwt } from 'passport-jwt';
 import * as express from 'express';
 import * as jwt from 'jsonwebtoken';
 import { DatabaseModule } from './db/database.module';
+import { SpotsModule } from './models/spots/spots.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { DatabaseModule } from './db/database.module';
       inject: [ConfigService],
       useFactory: throttlerOptions,
     }),
+    SpotsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

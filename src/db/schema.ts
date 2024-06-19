@@ -23,7 +23,14 @@ export const events = pgTable('events', {
     .defaultNow(),
 });
 
-export const SpotStatus = pgEnum('SpotStatus', ['available', 'reserved']);
+export enum SpotStatusEnum {
+  available = 'available',
+  reserved = 'reserved',
+}
+export const SpotStatus = pgEnum('SpotStatus', [
+  SpotStatusEnum.available,
+  SpotStatusEnum.reserved,
+]);
 
 export const spots = pgTable('spots', {
   id: uuid('id').primaryKey().defaultRandom(),
