@@ -37,10 +37,10 @@ export class ConfigService {
   get database() {
     return {
       host: this.config.get<string>('DATABASE_HOST', 'localhost'),
-      port: this.config.get<number>('DATABASE_PORT', 800),
-      name: this.config.get<string>('DATABASE_NAME', 'db_full_cycle'),
-      username: this.config.get<string>('DATABASE_USERNAME', 'root'),
-      password: this.config.get<string>('DATABASE_PASSWORD', 'senha123'),
+      port: this.config.get<number>('DATABASE_PORT', 3000),
+      name: this.config.get<string>('DATABASE_NAME', 'eduardomuchak'),
+      username: this.config.get<string>('DATABASE_USERNAME', 'eduardomuchak'),
+      password: this.config.get<string>('DATABASE_PASSWORD', ''),
     };
   }
 }

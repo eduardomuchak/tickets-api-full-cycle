@@ -1,0 +1,1 @@
+ALTER TYPE "TicketKind" ADD VALUE 'reserhalfved';
