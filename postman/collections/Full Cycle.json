@@ -1,0 +1,284 @@
+{
+	"info": {
+		"_postman_id": "fa6ba49e-bd9f-43cc-a538-0239e34f657c",
+		"name": "Full Cycle",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "19562716-fa6ba49e-bd9f-43cc-a538-0239e34f657c"
+	},
+	"item": [
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "Create Event",
+					"id": "a776fdb2-c724-40ad-8b43-9cfac940fe55",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"New Event\",\n    \"description\": \"This is a new event\",\n    \"date\": \"2018-01-01T00:00:00\",\n    \"price\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_BASE_URL}}/events",
+							"host": [
+								"{{LOCAL_BASE_URL}}"
+							],
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read All Events",
+					"id": "0920ec3b-ab93-4934-9287-1912c4334d2a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_BASE_URL}}/events",
+							"host": [
+								"{{LOCAL_BASE_URL}}"
+							],
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Event by ID",
+					"id": "02129e9b-ea87-49bd-9046-cd6c0603895b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_BASE_URL}}/events/45012c17-b2d3-4db3-bcc7-9d55f4233f2e",
+							"host": [
+								"{{LOCAL_BASE_URL}}"
+							],
+							"path": [
+								"events",
+								"45012c17-b2d3-4db3-bcc7-9d55f4233f2e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Event",
+					"id": "27c6c4b2-42f4-4570-921a-f6bf37cf1552",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"date\": \"2024-01-01T00:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_BASE_URL}}/events/36dec71d-aea3-498a-b788-7b7542a3321e",
+							"host": [
+								"{{LOCAL_BASE_URL}}"
+							],
+							"path": [
+								"events",
+								"36dec71d-aea3-498a-b788-7b7542a3321e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Event",
+					"id": "915feb05-ea5f-4e3c-8a57-14f019fae683",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_BASE_URL}}/events/244e8480-389e-4c17-ac66-c8ad6190b8fd",
+							"host": [
+								"{{LOCAL_BASE_URL}}"
+							],
+							"path": [
+								"events",
+								"244e8480-389e-4c17-ac66-c8ad6190b8fd"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "5ddde47b-d80e-4506-b0c9-dd8995df596a"
+		},
+		{
+			"name": "Spots",
+			"item": [
+				{
+					"name": "Create Spot",
+					"id": "7113ca21-b457-4efe-b3fa-d9f514b4f5d9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"A2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_BASE_URL}}/events/546964e9-3536-46dd-b4da-6a17aaa224ba/spots",
+							"host": [
+								"{{LOCAL_BASE_URL}}"
+							],
+							"path": [
+								"events",
+								"546964e9-3536-46dd-b4da-6a17aaa224ba",
+								"spots"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read All Spots",
+					"id": "8447be5e-c0e2-4a86-97bb-60e8eeda4ac0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_BASE_URL}}/events/546964e9-3536-46dd-b4da-6a17aaa224ba/spots",
+							"host": [
+								"{{LOCAL_BASE_URL}}"
+							],
+							"path": [
+								"events",
+								"546964e9-3536-46dd-b4da-6a17aaa224ba",
+								"spots"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Spot by ID",
+					"id": "277c5457-9852-4a5a-b3ff-df13dd3a4a3f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_BASE_URL}}/events/546964e9-3536-46dd-b4da-6a17aaa224ba/spots/34b1d37e-31c2-4914-9bde-dae9a194bd0c",
+							"host": [
+								"{{LOCAL_BASE_URL}}"
+							],
+							"path": [
+								"events",
+								"546964e9-3536-46dd-b4da-6a17aaa224ba",
+								"spots",
+								"34b1d37e-31c2-4914-9bde-dae9a194bd0c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Spot",
+					"id": "408c07d8-aa2c-498b-9174-e90e1be12a90",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"reserved\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_BASE_URL}}/events/546964e9-3536-46dd-b4da-6a17aaa224ba/spots/34b1d37e-31c2-4914-9bde-dae9a194bd0c",
+							"host": [
+								"{{LOCAL_BASE_URL}}"
+							],
+							"path": [
+								"events",
+								"546964e9-3536-46dd-b4da-6a17aaa224ba",
+								"spots",
+								"34b1d37e-31c2-4914-9bde-dae9a194bd0c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Spot",
+					"id": "de2e37e6-8c29-458e-a47e-ba0dffe8f61b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_BASE_URL}}/events/546964e9-3536-46dd-b4da-6a17aaa224ba/spots/244e8480-389e-4c17-ac66-c8ad6190b8fd",
+							"host": [
+								"{{LOCAL_BASE_URL}}"
+							],
+							"path": [
+								"events",
+								"546964e9-3536-46dd-b4da-6a17aaa224ba",
+								"spots",
+								"244e8480-389e-4c17-ac66-c8ad6190b8fd"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "5909660a-b1af-4354-99b9-c114f139e090"
+		}
+	]
+}
