@@ -2,8 +2,15 @@ import { Inject, Injectable } from '@nestjs/common';
 import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
 import { DB_PROVIDER, DB } from '@/db/database.providers';
-import { events } from '@/db/schema';
-import { eq } from 'drizzle-orm';
+import {
+  events,
+  reservationHistories,
+  spots,
+  SpotStatusEnum,
+  TicketStatusEnum,
+} from '@/db/schema';
+import { and, eq, inArray } from 'drizzle-orm';
+import { ReserveSpotDTO } from './dto/reserve-spot.dto';
 
 @Injectable()
 export class EventsService {
@@ -50,5 +57,68 @@ export class EventsService {
   async remove(id: string) {
     await this.db.delete(events).where(eq(events.id, id)).execute();
     return `The event with the id: ${id} has been deleted.`;
+  }
+
+  async reserveSpot(dto: ReserveSpotDTO & { eventId: string }) {
+    const eventSpots = await this.db
+      .select()
+      .from(spots)
+      .where(
+        and(eq(spots.eventId, dto.eventId), inArray(spots.name, dto.spots)),
+      )
+      .execute();
+
+    if (eventSpots.length !== dto.spots.length) {
+      const foundSpotsName = eventSpots.map((spot) => spot.name);
+      const notFoundSpotsName = dto.spots.filter(
+        (spotName) => !foundSpotsName.includes(spotName),
+      );
+      throw new Error(`Spots ${notFoundSpotsName.join(', ')} not found`);
+    }
+
+    try {
+      const tickets = await this.db.transaction(async (transaction) => {
+        await transaction
+          .insert(reservationHistories)
+          .values(
+            eventSpots.map((spot) => ({
+              spotId: spot.id,
+              ticketKind: dto.ticket_kind,
+              email: dto.email,
+              status: TicketStatusEnum.reserved,
+            })),
+          )
+          .execute();
+
+        await transaction
+          .update(spots)
+          .set({ status: SpotStatusEnum.reserved })
+          .where(
+            inArray(
+              spots.id,
+              eventSpots.map((spot) => spot.id),
+            ),
+          )
+          .execute();
+
+        const tickets = await Promise.all(
+          eventSpots.map((spot) =>
+            transaction
+              .insert(tickets)
+              .values({
+                spotId: spot.id,
+                ticketKind: dto.ticket_kind,
+                email: dto.email,
+              })
+              .returning(),
+          ),
+        );
+
+        return tickets;
+      });
+      return tickets.flat();
+    } catch (e) {
+      throw e;
+    }
   }
 }

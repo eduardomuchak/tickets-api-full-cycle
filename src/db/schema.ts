@@ -47,7 +47,15 @@ export const spots = pgTable('spots', {
     .references(() => events.id),
 });
 
-export const TicketKind = pgEnum('TicketKind', ['full', 'half']);
+export enum TicketKindEnum {
+  full = 'full',
+  half = 'reserhalfved',
+}
+
+export const TicketKind = pgEnum('TicketKind', [
+  TicketKindEnum.full,
+  TicketKindEnum.half,
+]);
 
 export const tickets = pgTable('tickets', {
   id: uuid('id').primaryKey().defaultRandom(),
@@ -65,7 +73,15 @@ export const tickets = pgTable('tickets', {
     .references(() => spots.id),
 });
 
-export const TicketStatus = pgEnum('TicketStatus', ['reserved', 'canceled']);
+export enum TicketStatusEnum {
+  reserved = 'reserved',
+  canceled = 'canceled',
+}
+
+export const TicketStatus = pgEnum('TicketStatus', [
+  TicketStatusEnum.reserved,
+  TicketStatusEnum.canceled,
+]);
 
 export const reservationHistories = pgTable('reservation_histories', {
   id: uuid('id').primaryKey().defaultRandom(),
