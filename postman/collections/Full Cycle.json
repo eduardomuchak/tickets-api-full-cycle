@@ -70,13 +70,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{LOCAL_BASE_URL}}/events/45012c17-b2d3-4db3-bcc7-9d55f4233f2e",
+							"raw": "{{LOCAL_BASE_URL}}/events/{{EVENT_ID}}",
 							"host": [
 								"{{LOCAL_BASE_URL}}"
 							],
 							"path": [
 								"events",
-								"45012c17-b2d3-4db3-bcc7-9d55f4233f2e"
+								"{{EVENT_ID}}"
 							]
 						}
 					},
@@ -101,13 +101,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{LOCAL_BASE_URL}}/events/36dec71d-aea3-498a-b788-7b7542a3321e",
+							"raw": "{{LOCAL_BASE_URL}}/events/{{EVENT_ID}}",
 							"host": [
 								"{{LOCAL_BASE_URL}}"
 							],
 							"path": [
 								"events",
-								"36dec71d-aea3-498a-b788-7b7542a3321e"
+								"{{EVENT_ID}}"
 							]
 						}
 					},
@@ -123,13 +123,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{LOCAL_BASE_URL}}/events/244e8480-389e-4c17-ac66-c8ad6190b8fd",
+							"raw": "{{LOCAL_BASE_URL}}/events/{{EVENT_ID}}",
 							"host": [
 								"{{LOCAL_BASE_URL}}"
 							],
 							"path": [
 								"events",
-								"244e8480-389e-4c17-ac66-c8ad6190b8fd"
+								"{{EVENT_ID}}"
 							]
 						}
 					},
@@ -160,13 +160,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{LOCAL_BASE_URL}}/events/546964e9-3536-46dd-b4da-6a17aaa224ba/spots",
+							"raw": "{{LOCAL_BASE_URL}}/events/{{EVENT_ID}}/spots",
 							"host": [
 								"{{LOCAL_BASE_URL}}"
 							],
 							"path": [
 								"events",
-								"546964e9-3536-46dd-b4da-6a17aaa224ba",
+								"{{EVENT_ID}}",
 								"spots"
 							]
 						}
@@ -183,13 +183,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{LOCAL_BASE_URL}}/events/546964e9-3536-46dd-b4da-6a17aaa224ba/spots",
+							"raw": "{{LOCAL_BASE_URL}}/events/{{EVENT_ID}}/spots",
 							"host": [
 								"{{LOCAL_BASE_URL}}"
 							],
 							"path": [
 								"events",
-								"546964e9-3536-46dd-b4da-6a17aaa224ba",
+								"{{EVENT_ID}}",
 								"spots"
 							]
 						}
@@ -206,15 +206,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{LOCAL_BASE_URL}}/events/546964e9-3536-46dd-b4da-6a17aaa224ba/spots/34b1d37e-31c2-4914-9bde-dae9a194bd0c",
+							"raw": "{{LOCAL_BASE_URL}}/events/{{EVENT_ID}}/spots/{{SPOT_ID}}",
 							"host": [
 								"{{LOCAL_BASE_URL}}"
 							],
 							"path": [
 								"events",
-								"546964e9-3536-46dd-b4da-6a17aaa224ba",
+								"{{EVENT_ID}}",
 								"spots",
-								"34b1d37e-31c2-4914-9bde-dae9a194bd0c"
+								"{{SPOT_ID}}"
 							]
 						}
 					},
@@ -239,15 +239,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{LOCAL_BASE_URL}}/events/546964e9-3536-46dd-b4da-6a17aaa224ba/spots/34b1d37e-31c2-4914-9bde-dae9a194bd0c",
+							"raw": "{{LOCAL_BASE_URL}}/events/{{EVENT_ID}}/spots/{{SPOT_ID}}",
 							"host": [
 								"{{LOCAL_BASE_URL}}"
 							],
 							"path": [
 								"events",
-								"546964e9-3536-46dd-b4da-6a17aaa224ba",
+								"{{EVENT_ID}}",
 								"spots",
-								"34b1d37e-31c2-4914-9bde-dae9a194bd0c"
+								"{{SPOT_ID}}"
 							]
 						}
 					},
@@ -263,15 +263,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{LOCAL_BASE_URL}}/events/546964e9-3536-46dd-b4da-6a17aaa224ba/spots/244e8480-389e-4c17-ac66-c8ad6190b8fd",
+							"raw": "{{LOCAL_BASE_URL}}/events/{{EVENT_ID}}/spots/{{SPOT_ID}}",
 							"host": [
 								"{{LOCAL_BASE_URL}}"
 							],
 							"path": [
 								"events",
-								"546964e9-3536-46dd-b4da-6a17aaa224ba",
+								"{{EVENT_ID}}",
 								"spots",
-								"244e8480-389e-4c17-ac66-c8ad6190b8fd"
+								"{{SPOT_ID}}"
 							]
 						}
 					},
