@@ -1,5 +1,13 @@
 services:
-  db-full-cycle:
+  app:
+    build: .
+    ports:
+      - 3000:3000
+      - 3001:3001
+    volumes:
+      - .:/home/node/app
+
+  db:
     image: postgis/postgis:15-3.4-alpine
     environment:
       POSTGRES_DB: eduardomuchak
@@ -8,6 +16,4 @@ services:
     ports:
       - 0800:5432
     volumes:
-      - db-data:/var/lib/postgresql
-volumes:
-  db-data:
+      - ./.docker/dbdata:/var/lib/postgresql
