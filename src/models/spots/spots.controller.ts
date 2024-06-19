@@ -33,21 +33,21 @@ export class SpotsController {
   }
 
   @Get(':spotId')
-  findOne(@Param('id') spotId: string, @Param('eventId') eventId: string) {
+  findOne(@Param('eventId') eventId: string, @Param('spotId') spotId: string) {
     return this.spotsService.findOne(eventId, spotId);
   }
 
   @Patch(':spotId')
   update(
-    @Param('id') spotId: string,
     @Param('eventId') eventId: string,
+    @Param('spotId') spotId: string,
     @Body() updateSpotRequest: UpdateSpotDto,
   ) {
     return this.spotsService.update(eventId, spotId, updateSpotRequest);
   }
 
   @Delete(':spotId')
-  remove(@Param('id') spotId: string, @Param('eventId') eventId: string) {
+  remove(@Param('eventId') eventId: string, @Param('spotId') spotId: string) {
     return this.spotsService.remove(eventId, spotId);
   }
 }

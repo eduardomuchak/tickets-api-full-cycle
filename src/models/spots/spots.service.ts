@@ -39,7 +39,7 @@ export class SpotsService {
     const result = await this.db
       .select()
       .from(spots)
-      .where(and(eq(spots.id, spotId), eq(spots.eventId, eventId)))
+      .where(and(eq(spots.eventId, eventId), eq(spots.id, spotId)))
       .execute();
 
     return result[0];
@@ -49,7 +49,7 @@ export class SpotsService {
     const result = await this.db
       .update(spots)
       .set(updateSpotDto)
-      .where(and(eq(spots.id, spotId), eq(spots.eventId, eventId)))
+      .where(and(eq(spots.eventId, eventId), eq(spots.id, spotId)))
       .returning();
 
     return result[0];
@@ -58,7 +58,7 @@ export class SpotsService {
   async remove(eventId: string, spotId: string) {
     await this.db
       .delete(spots)
-      .where(and(eq(spots.id, spotId), eq(spots.eventId, eventId)))
+      .where(and(eq(spots.eventId, eventId), eq(spots.id, spotId)))
       .execute();
 
     return `The spot with the id: ${spotId} has been deleted.`;
