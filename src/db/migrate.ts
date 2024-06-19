@@ -3,18 +3,17 @@ import { migrate as dbMigrate } from 'drizzle-orm/node-postgres/migrator';
 import * as path from 'path';
 import { Pool, PoolConfig } from 'pg';
 
-const { DATABASE_NAME, DATABASE_USERNAME, DATABASE_PASSWORD } = process.env;
+const { DATABASE_NAME, DATABASE_USERNAME } = process.env;
 
 const migrate = async () => {
   console.log('===== Starting Migration =====');
 
   const options: PoolConfig = {
-    database: DATABASE_NAME || 'db_full_cycle',
-    user: DATABASE_USERNAME || 'root',
-    password: DATABASE_PASSWORD || 'senha123',
+    database: DATABASE_NAME || 'eduardomuchak',
+    user: DATABASE_USERNAME || 'eduardomuchak',
     max: 1,
     host: 'localhost',
-    port: 8080,
+    port: 800,
   };
 
   const db: NodePgDatabase<Record<string, never>> = drizzle(new Pool(options));

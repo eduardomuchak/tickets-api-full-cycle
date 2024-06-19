@@ -1,6 +1,4 @@
-export class CreateEventDto {
-  name: string;
-  description: string;
-  date: string;
-  price: number;
-}
+import { events } from '@/db/schema';
+import { InferInsertModel } from 'drizzle-orm';
+
+export type CreateEventDto = InferInsertModel<typeof events>;

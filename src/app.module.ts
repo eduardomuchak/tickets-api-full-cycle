@@ -8,9 +8,11 @@ import { EventsModule } from './events/events.module';
 import { ExtractJwt } from 'passport-jwt';
 import * as express from 'express';
 import * as jwt from 'jsonwebtoken';
+import { DatabaseModule } from './db/database.module';
 
 @Module({
   imports: [
+    DatabaseModule,
     EventsModule,
     ConfigModule,
     ThrottlerModule.forRootAsync({

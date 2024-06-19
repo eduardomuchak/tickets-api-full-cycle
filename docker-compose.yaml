@@ -2,9 +2,12 @@ services:
   db-full-cycle:
     image: postgis/postgis:15-3.4-alpine
     environment:
-      POSTGRES_DB: db_full_cycle
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: senha123
+      POSTGRES_DB: eduardomuchak
+      POSTGRES_USER: eduardomuchak
       POSTGRES_HOST_AUTH_METHOD: trust
     ports:
-      - 8080:5432
+      - 0800:5432
+    volumes:
+      - db-data:/var/lib/postgresql
+volumes:
+  db-data:
