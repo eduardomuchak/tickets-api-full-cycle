@@ -6,6 +6,7 @@ import {
   events,
   reservationHistories,
   spots,
+  tickets,
   SpotStatusEnum,
   TicketStatusEnum,
 } from '@/db/schema';
@@ -63,9 +64,7 @@ export class EventsService {
     const eventSpots = await this.db
       .select()
       .from(spots)
-      .where(
-        and(eq(spots.eventId, dto.eventId), inArray(spots.name, dto.spots)),
-      )
+      .where(and(eq(spots.eventId, dto.eventId), inArray(spots.id, dto.spots)))
       .execute();
 
     if (eventSpots.length !== dto.spots.length) {
@@ -77,46 +76,48 @@ export class EventsService {
     }
 
     try {
-      const tickets = await this.db.transaction(async (transaction) => {
-        await transaction
-          .insert(reservationHistories)
-          .values(
-            eventSpots.map((spot) => ({
-              spotId: spot.id,
-              ticketKind: dto.ticket_kind,
-              email: dto.email,
-              status: TicketStatusEnum.reserved,
-            })),
-          )
-          .execute();
-
-        await transaction
-          .update(spots)
-          .set({ status: SpotStatusEnum.reserved })
-          .where(
-            inArray(
-              spots.id,
-              eventSpots.map((spot) => spot.id),
-            ),
-          )
-          .execute();
-
-        const tickets = await Promise.all(
-          eventSpots.map((spot) =>
-            transaction
-              .insert(tickets)
-              .values({
+      const spotsReservations = await this.db.transaction(
+        async (transaction) => {
+          await transaction
+            .insert(reservationHistories)
+            .values(
+              eventSpots.map((spot) => ({
                 spotId: spot.id,
                 ticketKind: dto.ticket_kind,
                 email: dto.email,
-              })
-              .returning(),
-          ),
-        );
+                status: TicketStatusEnum.reserved,
+              })),
+            )
+            .execute();
 
-        return tickets;
-      });
-      return tickets.flat();
+          await transaction
+            .update(spots)
+            .set({ status: SpotStatusEnum.reserved })
+            .where(
+              inArray(
+                spots.id,
+                eventSpots.map((spot) => spot.id),
+              ),
+            )
+            .execute();
+
+          const ticketReservation = await Promise.all(
+            eventSpots.map((spot) =>
+              transaction
+                .insert(tickets)
+                .values({
+                  spotId: spot.id,
+                  ticketKind: dto.ticket_kind,
+                  email: dto.email,
+                })
+                .returning(),
+            ),
+          );
+
+          return ticketReservation;
+        },
+      );
+      return spotsReservations.flat();
     } catch (e) {
       throw e;
     }
