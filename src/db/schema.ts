@@ -49,7 +49,7 @@ export const spots = pgTable('spots', {
 
 export enum TicketKindEnum {
   full = 'full',
-  half = 'reserhalfved',
+  half = 'half',
 }
 
 export const TicketKind = pgEnum('TicketKind', [
