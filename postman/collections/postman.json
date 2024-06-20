@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "fa6ba49e-bd9f-43cc-a538-0239e34f657c",
+		"_postman_id": "f2d1a5e5-6ca5-409b-99a5-830be9e0e47f",
 		"name": "postman",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "19562716-fa6ba49e-bd9f-43cc-a538-0239e34f657c"
+		"_uid": "19562716-f2d1a5e5-6ca5-409b-99a5-830be9e0e47f"
 	},
 	"item": [
 		{
@@ -11,7 +11,7 @@
 			"item": [
 				{
 					"name": "Create Event",
-					"id": "a776fdb2-c724-40ad-8b43-9cfac940fe55",
+					"id": "05413054-29ca-46e3-893d-5a2a8dcc9778",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -41,7 +41,7 @@
 				},
 				{
 					"name": "Read All Events",
-					"id": "0920ec3b-ab93-4934-9287-1912c4334d2a",
+					"id": "1a7e34d9-64c3-4cce-b418-5445e48c7f1c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -62,7 +62,7 @@
 				},
 				{
 					"name": "Read Event by ID",
-					"id": "02129e9b-ea87-49bd-9046-cd6c0603895b",
+					"id": "67055216-341a-47a8-b8f9-d38174424eb8",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -84,7 +84,7 @@
 				},
 				{
 					"name": "Update Event",
-					"id": "27c6c4b2-42f4-4570-921a-f6bf37cf1552",
+					"id": "2b75ad2f-dcc9-416a-8647-45a8bce5ec14",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -115,7 +115,7 @@
 				},
 				{
 					"name": "Delete Event",
-					"id": "915feb05-ea5f-4e3c-8a57-14f019fae683",
+					"id": "ce3fdcf5-fe7b-4f64-a6b6-9d2bb00d700c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -134,16 +134,48 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Reserve Event Spot",
+					"id": "f76a2037-a158-4b7c-b645-a089e5935be6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"spots\": [\"ea087de7-db91-49a5-8723-5d486e23ef9c\"],\n    \"ticket_kind\": \"full\",\n    \"email\": \"eduardomuchak@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_BASE_URL}}/events/{{EVENT_ID}}/reserve",
+							"host": [
+								"{{LOCAL_BASE_URL}}"
+							],
+							"path": [
+								"events",
+								"{{EVENT_ID}}",
+								"reserve"
+							]
+						}
+					},
+					"response": []
 				}
 			],
-			"id": "5ddde47b-d80e-4506-b0c9-dd8995df596a"
+			"id": "2f2a6837-4b03-4306-aa1f-612e5dfec723"
 		},
 		{
 			"name": "Spots",
 			"item": [
 				{
 					"name": "Create Spot",
-					"id": "7113ca21-b457-4efe-b3fa-d9f514b4f5d9",
+					"id": "c99aa0a3-235b-4d3a-8afc-70644aeaca2f",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -175,7 +207,7 @@
 				},
 				{
 					"name": "Read All Spots",
-					"id": "8447be5e-c0e2-4a86-97bb-60e8eeda4ac0",
+					"id": "20ff9d58-4b9d-4e0a-988f-e2b8220da6f6",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -198,7 +230,7 @@
 				},
 				{
 					"name": "Read Spot by ID",
-					"id": "277c5457-9852-4a5a-b3ff-df13dd3a4a3f",
+					"id": "453f67dd-9d70-4d22-af6b-79c47eeda4ca",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -222,7 +254,7 @@
 				},
 				{
 					"name": "Update Spot",
-					"id": "408c07d8-aa2c-498b-9174-e90e1be12a90",
+					"id": "8726b533-d880-4903-87d2-bbf713e0ad03",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -255,7 +287,7 @@
 				},
 				{
 					"name": "Delete Spot",
-					"id": "de2e37e6-8c29-458e-a47e-ba0dffe8f61b",
+					"id": "ea8a0376-761a-4921-980c-53133109a745",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -278,7 +310,7 @@
 					"response": []
 				}
 			],
-			"id": "5909660a-b1af-4354-99b9-c114f139e090"
+			"id": "bc144943-a35e-4725-b500-a8a5653d17ce"
 		}
 	]
 }
