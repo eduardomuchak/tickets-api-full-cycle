@@ -118,7 +118,18 @@ export class EventsService {
         },
       );
       return spotsReservations.flat();
-    } catch (e) {
+    } catch (e: unknown) {
+      throw this.handleError(e);
+    }
+  }
+
+  private handleError(e) {
+    // TODO: Handle error using exception filter of nestjs
+    if (e.code === '23505') {
+      throw new Error('Unique constraint violation');
+    } else if (e.code === '40001') {
+      throw new Error('Transaction conflict');
+    } else {
       throw e;
     }
   }
